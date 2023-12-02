@@ -1,0 +1,37 @@
+import unittest
+from ..model.Environment import LifeExperienceEnv as lfe
+#from model.Environment import LifeExperienceEnv as lfe
+
+class TestLifeExperienceEnv(unittest.TestCase):
+
+    def test_initialization(self):
+        env = lfe()  # Use lfe() instead of lfe.LifeExperienceEnv()
+        self.assertIsNotNone(env)
+
+    def test_initialization(self):
+        env = lfe()
+        self.assertIsNotNone(env)  # Assert that the environment is not None
+
+    def test_step(self):
+        env = lfe()
+        state = env.reset()
+        self.assertIsNotNone(state)  # Assert that the state is not None
+
+        action = env.action_space.sample()
+        next_state, reward, done, info = env.step(action)
+        self.assertIsNotNone(next_state)  # Assert that the next state is not None
+        self.assertIsNotNone(reward)  # Assert that the reward is not None
+        self.assertIsNotNone(done)  # Assert that the done flag is not None
+        self.assertIsNotNone(info)  # Assert that the info is not None
+
+    def test_reset(self):
+        env = lfe()
+        state = env.reset()
+        self.assertIsNotNone(state)  # Assert that the state is not None
+
+    def test_render(self):
+        env = lfe()
+        self.assertIsNone(env.render())  # Assert that the render function returns None
+
+if __name__ == '__main__':
+    unittest.main()
